@@ -26,8 +26,7 @@
             "examples/esp-idf/02_I2C_PCF85063/components/SensorLib/**",
             "examples/esp-idf/03_I2C_QMI8658/components/SensorLib/**",
             "examples/factory/components/SensorLib/**"
-          ],
-          "reason": "Vendored lewisxhe/SensorLib sources and original upstream documentation."
+          ]
         }
       ]
     }
