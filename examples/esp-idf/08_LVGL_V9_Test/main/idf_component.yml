@@ -16,4 +16,6 @@ dependencies:
   #   # `public` flag doesn't have an effect dependencies of the `main` component.
   #   # All dependencies of `main` are public by default.
   #   public: true
-  lvgl/lvgl: ^9.3.0
+  # LVGL 9.6 provides the byte-based LV_MEM_SIZE setting used by this example.
+  # Revalidate both ESP-IDF versions before changing this dependency.
+  lvgl/lvgl: "9.6.0~1"
