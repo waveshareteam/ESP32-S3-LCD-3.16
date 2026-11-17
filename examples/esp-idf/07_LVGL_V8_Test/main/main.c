@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "esp_idf_version.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/semphr.h"
@@ -145,11 +146,16 @@ void app_main(void)
   esp_lcd_rgb_panel_config_t rgb_config = 
   {
     .clk_src = LCD_CLK_SRC_DEFAULT,
-    .psram_trans_align = 64,
+    .dma_burst_size = 64,
     .bounce_buffer_size_px = 10 * EXAMPLE_LCD_H_RES,
     .num_fbs = 2,
     .data_width = 16,
+#if ESP_IDF_VERSION_MAJOR >= 6
+    .in_color_format = LCD_COLOR_FMT_RGB565,
+    .out_color_format = LCD_COLOR_FMT_RGB565,
+#else
     .bits_per_pixel = 16,
+#endif
     .de_gpio_num = EXAMPLE_LCD_IO_RGB_DE,
     .pclk_gpio_num = EXAMPLE_LCD_IO_RGB_PCLK,
     .vsync_gpio_num = EXAMPLE_LCD_IO_RGB_VSYNC,

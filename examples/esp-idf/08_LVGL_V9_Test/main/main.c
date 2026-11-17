@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "esp_idf_version.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/semphr.h"
@@ -183,11 +184,16 @@ void app_main(void)
   esp_lcd_rgb_panel_config_t rgb_config = 
   {
     .clk_src = LCD_CLK_SRC_DEFAULT,
-    .psram_trans_align = 64,
+    .dma_burst_size = 64,
     .bounce_buffer_size_px = 10 * EXAMPLE_LCD_H_RES,
     .num_fbs = 2,
     .data_width = 16,
+#if ESP_IDF_VERSION_MAJOR >= 6
+    .in_color_format = LCD_COLOR_FMT_RGB565,
+    .out_color_format = LCD_COLOR_FMT_RGB565,
+#else
     .bits_per_pixel = 16,
+#endif
     .de_gpio_num = EXAMPLE_LCD_IO_RGB_DE,
     .pclk_gpio_num = EXAMPLE_LCD_IO_RGB_PCLK,
     .vsync_gpio_num = EXAMPLE_LCD_IO_RGB_VSYNC,
@@ -254,7 +260,7 @@ void app_main(void)
                                                                                          * or initialize st7701 meanwhile
                                                                                        */
   esp_lcd_rgb_panel_event_callbacks_t cbs = {
-    .on_bounce_frame_finish = example_on_bounce_frame_finish_event,
+    .on_frame_buf_complete = example_on_bounce_frame_finish_event,
   };
   ESP_ERROR_CHECK(esp_lcd_rgb_panel_register_event_callbacks(panel_handle, &cbs, NULL));
   ESP_ERROR_CHECK(esp_lcd_panel_reset(panel_handle));                                   // Only reset RGB when `enable_io_multiplex` is set to 1, or reset st7701 meanwhile
