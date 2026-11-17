@@ -67,7 +67,6 @@
 | [04_SD_Card](examples/arduino/examples/04_SD_Card/README_ZH.md) | 挂载 microSD 卡并输出卡片信息与容量。 |
 | [05_WIFI_AP](examples/arduino/examples/05_WIFI_AP/README_ZH.md) | 创建 2.4 GHz Wi-Fi 热点并输出客户端连接信息。 |
 | [06_WIFI_STA](examples/arduino/examples/06_WIFI_STA/README_ZH.md) | 连接 2.4 GHz Wi-Fi 网络并输出分配到的 IP 地址。 |
-| [07_LVGL_V8_Test](examples/arduino/examples/07_LVGL_V8_Test/README_ZH.md) | 在 RGB LCD 上运行 LVGL 8 音乐界面演示。 |
 | [08_LVGL_V9_Test](examples/arduino/examples/08_LVGL_V9_Test/README_ZH.md) | 在 RGB LCD 上运行 LVGL 9 音乐界面演示。 |
 
 草图使用的库随仓库提供，位于 [`examples/arduino/libraries`](examples/arduino/libraries/)。

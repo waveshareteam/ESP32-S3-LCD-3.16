@@ -68,7 +68,6 @@ Factory firmware (restores the out-of-box demo): download the file whose name co
 | [04_SD_Card](examples/arduino/examples/04_SD_Card/) | Mounts a microSD card and reports card information and capacity. |
 | [05_WIFI_AP](examples/arduino/examples/05_WIFI_AP/) | Creates a 2.4 GHz Wi-Fi access point and reports connected stations. |
 | [06_WIFI_STA](examples/arduino/examples/06_WIFI_STA/) | Connects to a 2.4 GHz Wi-Fi network and prints the assigned IP address. |
-| [07_LVGL_V8_Test](examples/arduino/examples/07_LVGL_V8_Test/) | Runs the LVGL 8 music interface on the RGB LCD. |
 | [08_LVGL_V9_Test](examples/arduino/examples/08_LVGL_V9_Test/) | Runs the LVGL 9 music interface on the RGB LCD. |
 
 Libraries used by the sketches are bundled in [`examples/arduino/libraries`](examples/arduino/libraries/).
